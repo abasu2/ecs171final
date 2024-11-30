@@ -1,8 +1,10 @@
-# LaTeX VSCode IEEE Conference Paper Format Template
+# ECS 171 Project
 
-Modified from [original LaTeX template from IEEE](https://www.ieee.org/conferences/publishing/templates.html).
+This repository has two components: the report and the code, under folders report and code.
 
-This template is an altered LaTeX template sourced from IEEE, featuring enhanced division of topics among chapters and references. It effectively streamlines and declutters the document, ensuring a more polished and organized workflow.
+# Report
+
+The report is the 8-10 page final report formatted according to IEEE guidelines. The content of the report is split into `.tex` files under `report/src`.
 
 ## Requirements
 
@@ -39,21 +41,18 @@ pacman -Syu texlive-core texlive-fontsextra texlive-latexextra texlive-science t
 
 ## Usage
 
-- Make modifications to the `.tex` files and `references.bib` file according to your requirements. If you need to include additional chapters, create a new `.tex` file in the "chapters/" directory and add the chapter reference in the `document.tex` file.
-- If you need to define custom rules or include new packages, you can edit the `ieee-paper.sty` file.
-- To include images or any other resources, place them in the "resource/" folder.
-- Before publishing your document, ensure that you remove any template texts or placeholders from the content.
+To build the project report and open it, change your working directory to `report` and use the provided makefile.
 
-### Useful Shortcuts from Latex Workshop
+### For Linux
+```bash
+cd report
+make
+```
 
-| Shortcut             | Location | Usage                                          |
-| -------------------- | -------- | ---------------------------------------------- |
-| `ctrl` + `alt` + `v` | `.tex`   | open pdf in side window                        |
-| `ctrl` + `lmb`       | `.pdf`   | open `tex` file according to cursor in `pdf`   |
-| `ctrl` + `alt` + `j` | `.tex`   | scroll `pdf` according to cursor in `tex` file |
+# Code
 
-## Contributions
+The code includes all the models and data visualization.
 
-Feel free to open issues and contribute to this repository! You can report any problems or feature requests by issuing new [issues](https://github.com/alvinwilta/ieee-conference-latex/issues) and contributing by forking this repository and opening up new [pull requests](https://github.com/alvinwilta/ieee-conference-latex/pulls).
+## Requirements
 
-Template created by [Alvin Wilta](https://github.com/alvinwilta), 2023.
+The requirements for running the code are given in `requirements.txt`.

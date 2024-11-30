@@ -5,7 +5,10 @@
     {
       "name": "latexmk",
       // "tools": ["pdflatex", "bibtex","pdflatex", "pdflatex"]
-      "tools": ["latexmk", "copypdf"]
+      "tools": [
+        "latexmk",
+        "copypdf"
+      ]
     }
   ],
   "latex-workshop.latex.outDir": "%DIR%/build",
@@ -37,17 +40,25 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": ["%OUTDIR%/%DOCFILE%"],
-      "env": { "TEXMFOUTPUT": "%OUTDIR%" }
+      "args": [
+        "%OUTDIR%/%DOCFILE%"
+      ],
+      "env": {
+        "TEXMFOUTPUT": "%OUTDIR%"
+      }
     },
     {
       "name": "copypdf",
       "command": "cp",
-      "args": ["%OUTDIR%/%DOCFILE%.pdf", "../"]
+      "args": [
+        "%OUTDIR%/%DOCFILE%.pdf",
+        "../"
+      ]
     }
   ],
   "latex-workshop.view.pdf.invert": 0,
   "editor.wordWrap": "on",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "makefile.configureOnOpen": false
   // "workbench.colorTheme": "Better Solarized Light"
 }

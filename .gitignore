@@ -23,4 +23,5 @@ texmf
 output/*
 build/*
 src/build/*
-.vscode/*
+.vscode
+.venv
