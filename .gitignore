@@ -21,6 +21,5 @@
 texmf
 .directory
 output/*
-report/build/*
-report/src/build/*
+report/build/
 .venv
