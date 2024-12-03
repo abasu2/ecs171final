@@ -1,12 +1,9 @@
 \documentclass[conference]{IEEEtran}
-\usepackage{config/ieee-paper}
-\input{config/hyphenation}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
 
 \newcommand{\todo}[1]{\textcolor{red}{\textbf{TODO:} #1}}
-
-% Adding references to the document
-\addbibresource{IEEEabrv.bib}
-\addbibresource{references.bib}
 
 \begin{document}
 
@@ -25,8 +22,8 @@
 \input{5-eval}
 \input{6-literature}
 \input{7-conclusion}
-\input{info}
 
-\printbibliography{}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
