@@ -1,3 +1,11 @@
 \section{Exploratory Data Analysis}
 
+The goal of exploratory data analysis (EDA) is to understand the dataset and its features. This process involves examining the data, identifying patterns, and summarizing the main characteristics of the dataset. We first provide a detailed analysis of the features and their distributions, describe the correlations between features, and justify our lack of dimensionality reduction.
+
+\subsection{Feature Distributions}
 For each feature, we created and examined either a histogram (for numerical features) or a bar chart (for categorical features). For each feature, we also recorded descriptive statistics and noted whether there were any outliers, missing values, or rare categories. To determine the relationship between the features in the dataset, we performed a correlation analysis on the data. For each pair of numerical features, we created a scatter plot. We also created a correlation heatmap of the data (pictured above). Based on the correlation heatmap, we determined that no two features are especially correlated (other than ``oldpeak'' representing ST-segment depression on an ECG during exercise, and ``slope'' representing ST/HR slope). From these results, we tentatively did not perform any dimensionality reduction.
+
+\subsection{Feature Correlations}
+
+\subsection{Dimensionality Reduction}
+We did not perform any dimensionality reduction on the dataset. The dataset contains only 13 features, which is a manageable number for most machine learning algorithms. We also did not find any features that were highly correlated with each other, so we did not need to remove any features on that basis.
