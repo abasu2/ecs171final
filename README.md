@@ -55,4 +55,4 @@ The code includes all the models and data visualization.
 
 ## Requirements
 
-The requirements for running the code are given in `requirements.txt`. To install the requirements, use the pip package manager and run `pip install requirements.txt`.
+The requirements for running the code are given in `requirements.txt`. To install the requirements, use the pip package manager and run `pip install -r requirements.txt`.
