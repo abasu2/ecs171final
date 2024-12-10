@@ -6,6 +6,7 @@ attrs==24.2.0
 backcall==0.2.0
 beautifulsoup4==4.12.3
 bleach==6.2.0
+blinker==1.9.0
 certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7
@@ -19,6 +20,7 @@ defusedxml==0.7.1
 docopt==0.6.2
 executing==2.1.0
 fastjsonschema==2.21.0
+Flask==3.1.0
 flatbuffers==24.3.25
 fonttools==4.55.0
 gast==0.6.0
@@ -31,6 +33,7 @@ ImageHash==4.3.1
 ipykernel==6.29.5
 ipython==8.12.3
 ipywidgets==8.1.5
+itsdangerous==2.2.0
 jedi==0.19.2
 Jinja2==3.1.4
 joblib==1.4.2
