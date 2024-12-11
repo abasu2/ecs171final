@@ -6,7 +6,8 @@ The goal of exploratory data analysis (EDA) is to understand the dataset and its
 For each feature, we created and examined either a histogram and boxplot (for numerical features) or a bar chart (for categorical features). An example plot for the distribution of age is given in Fig.~\ref{agedist}. For each feature, we also recorded descriptive statistics and noted whether there were any outliers, missing values, or rare categories.
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[width=0.7\columnwidth]{img/agedist.png}}
+    % \centerline{\includegraphics[width=0.7\columnwidth]{img/agedist.png}}
+    \centerline{\includegraphics[scale=0.44]{img/agedist.png}}
     \caption{Distribution of Age.}\label{agedist}
 \end{figure}
 
@@ -17,7 +18,8 @@ We determined that the majority of categorical features have imbalanced classes.
 To determine the relationship between the features in the dataset, we performed a correlation analysis on the data. For each pair of numerical features, we created a scatter plot. We also created a correlation heatmap of the data, shown in Fig. ~\ref{featureheatmap}. Based on the correlation heatmap, we determined that no two features are especially correlated (other than ``oldpeak'' representing ST-segment depression on an ECG during exercise, and ``slope'' representing ST/HR slope).
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[width=0.7\columnwidth]{img/featureheatmap.png}}
+    % \centerline{\includegraphics[width=0.7\columnwidth]{img/featureheatmap.png}}
+    \centerline{\includegraphics[scale=0.34]{img/featureheatmap.png}}
     \caption{Feature Correlation Heatmap.}\label{featureheatmap}
 \end{figure}
 
@@ -25,6 +27,7 @@ To determine the relationship between the features in the dataset, we performed 
 We did not perform any dimensionality reduction on the dataset. The dataset contains only 13 features, which is tractable for all the models we chose. We also did not find any features that were highly correlated with each other, so we did not need to remove any features on the basis of correlation. To corroborate our lack of dimensionality reduction, we conducted a principal component analysis (PCA) on the dataset to determine if there were any features that could be removed on the basis of a very low explained variance. We found that all 13 principal components carried a non-insignificant amount of variance (>2\% for all components), shown in Fig.~\ref{pca}. Due to the low number of features and the lack of correlation between features, we decided to keep all features in the dataset.
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[width=0.7\columnwidth]{img/pca.png}}
+    % \centerline{\includegraphics[width=0.7\columnwidth]{img/pca.png}}
+    \centerline{\includegraphics[scale=0.435]{img/pca.png}}
     \caption{Explained Variance of Principal Components.}\label{pca}
 \end{figure}
