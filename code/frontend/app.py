@@ -74,6 +74,7 @@ def predict():
         predicted_class = binary_prediction[0]  # Assuming single class output
         predicted_class = "Heart Disease" if predicted_class == 1 else "No Heart Disease"
 
+        
         return render_template("result.html", prediction=predicted_class)
 
     else:

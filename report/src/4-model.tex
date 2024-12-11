@@ -4,7 +4,7 @@
 \subsection{Logistic Regression}
 To develop the logistic regression model, we used the scikit-learn library in Python. The dataset was preprocessed by selecting 13 key features and converting the multi-class target variable $(1 - 4)$ into a binary target for heart disease classification. Missing values were handled using mean imputation, and we normalized the feature values using min-max scaling to ensure all features were on a similar scale.
 
-The Logistic Regression model inherently uses the sigmoid activation function to model the probability of the target class (disease or no disease). The sigmoid function transforms the linear combination of the input features, $z = w^{T}X + b$ (where \(w\) represents the weights and \(b\) the bias), into a probability value between 0 and 1. This transformation is defined as:
+The Logistic Regression model inherently uses the sigmoid activation function to model the probability of the target class (disease or no disease). The sigmoid function transforms the linear combination of the input features, $z = \mathbf{w}^{T}\mathbf{X} + \mathbf{b}$ (where \(\mathbf{w}\) represents the weight vector and \(\mathbf{b}\) represents the bias vector), into a probability value between 0 and 1. This transformation is defined as:
 
 \[
 P(y=1 \mid X) = \frac{1}{1 + e^{-z}}
@@ -17,12 +17,14 @@ If $\textnormal{P}(y=1 \mid X) < 0.5$, the prediction is "No Disease".
 The initial model, trained without hyperparameter tuning or cross-validation, achieved a precision of 0.86, accuracy of 0.89, recall of 0.86, specificity of 0.87, and an F1-Score of 0.86, indicating balanced performance for the task. After applying cross-validation and hyperparameter tuning, the updated model achieved improved metrics: precision of 0.89, accuracy of 0.83, recall of 0.86, specificity of 0.90, and an F1-Score of 0.88. (Fig.~\ref{Initial Logistic Regression Confusion Matrix} \& Fig.~\ref{Tuned Logistic Regression Confusion Matrix})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_inital.png}}
+    % \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_inital.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/confusion_matrix_initial.png}}
     \caption{Initial Logistic Regression Confusion Matrix.}\label{Initial Logistic Regression Confusion Matrix}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_tuned_model.png}}
+    % \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_tuned_model.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/confusion_matrix_tuned.png}}
     \caption{Tuned Logistic Regression Confusion Matrix.}\label{Tuned Logistic Regression Confusion Matrix}
 \end{figure}
 
@@ -30,12 +32,14 @@ The Receiver Operating Characteristic (ROC) curve for the initial model had an A
 By analyzing the confusion matrix and ROC curve, we concluded that the logistic regression model provides robust predictions for detecting heart disease while maintaining low false-positive and false-negative rates. (Fig.~\ref{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve} \& Fig.~\ref{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_inital.png}}
+    % \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_inital.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/roc_initial.png}}
     \caption{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve.}\label{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_tuned_model.png}}
+    % \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_tuned_model.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/roc_tuned.png}}
     \caption{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve.}\label{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
@@ -45,12 +49,14 @@ We developed this model for the prediction of heart disease presence using a Ran
 Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix. (Fig.~\ref{Tuned Random Forest Precision Recall Curve} \& Fig.~\ref{Tuned Random Forest Confusion Matrix})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/random_forest_precision_recall_optimized.png}}
+    % \centerline{\includegraphics[scale=0.2]{img/random_forest_precision_recall_optimized.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/random_forest_precision_recall_optimized.png}}
     \caption{Tuned Random Forest Precision Recall Curve.}\label{Tuned Random Forest Precision Recall Curve}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.4]{img/random_forest_confusion_matrix_optimized.png}}
+    % \centerline{\includegraphics[scale=0.4]{img/random_forest_confusion_matrix_optimized.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/random_forest_confusion.png}}
     \caption{Tuned Random Forest Confusion Matrix.}\label{Tuned Random Forest Confusion Matrix}
 \end{figure}
 
@@ -64,16 +70,16 @@ where \(y_i\) is the true label and \(P(y_i)\) is the predicted probability of t
 We used mini-batch gradient descent as the optimization technique. We trained the model for 100 epochs with a batch size of 10. However, when we examined the training and testing loss, we found that the model was greatly overfitting the training data, as seen in Fig.~\ref{annoverfitting}. 
 
 \begin{figure}[htbp]
-    % \centerline{\includegraphics[width=0.7\columnwidth]{img/annoverfitting.png}}
-    \centerline{\includegraphics[scale=0.435]{img/annoverfitting.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/annoverfitting.png}}
+    % \centerline{\includegraphics[scale=0.435]{img/annoverfitting.png}}
     \caption{Initial ANN model Training and Testing Loss.}\label{annoverfitting}
 \end{figure}
 
 To address this issue, we added 5-fold cross-validation and hyperparameter tuning, with dropout and momentum added. We used the GridSearchCV function from the scikit-learn library to perform a grid search over different values for the number of hidden layers (1, 2, 3), the number of neurons in each hidden layer (32, 64, 128), the dropout rate (0.1, 0.3) and the momentum term (0.5, 0.9). To further prevent overfitting and to reduce computation time, we reduced the number of epochs the model was trained for from 100 to 50. We found that the best model had three hidden layers with 128 neurons each, with a dropout rate of 0.3 and momentum term of 0.5. The best model achieved an accuracy of 0.91 on the test set, which was a significant improvement over the simple model which had an accuracy of 0.85. The confusion matrix for the best model is shown in Fig.~\ref{annconfusion}.
 
 \begin{figure}[htbp]
-    % \centerline{\includegraphics[width=0.7\columnwidth]{img/annconfusion.png}}
-    \centerline{\includegraphics[scale=.65]{img/annconfusion.png}}
+    \centerline{\includegraphics[width=0.8\columnwidth]{img/annconfusion.png}}
+    % \centerline{\includegraphics[scale=.65]{img/annconfusion.png}}
     \caption{Tuned ANN model Confusion matrix.}\label{annconfusion}
 \end{figure}
 
