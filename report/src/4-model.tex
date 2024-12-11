@@ -2,8 +2,45 @@
 \section{Models}
 
 \subsection{Logistic Regression}
+To develop the logistic regression model, we used the scikit-learn library in Python. The dataset was preprocessed by selecting 13 key features and converting the multi-class target variable $(1 - 4)$ into a binary target for heart disease classification. Missing values were handled using mean imputation, and we normalized the feature values using min-max scaling to ensure all features were on a similar scale.
+
+The Logistic Regression model inherently uses the sigmoid activation function to model the probability of the target class (disease or no disease). The sigmoid function transforms the linear combination of the input features, $z = w^{TX} + b$ (where W represents the weights and b the bias), into a probability value between 0 and 1. This transformation is defined as:
+
+$P(y=1|X) = \frac{1}{1 + e^{-z}}$
+
+The dataset was split into 75\% training and 25\% testing sets using the binary cross-entropy loss function which measures the difference between the predicted probabilities and the actual target labels. When making predictions, the model assigns the class label based on a threshold of 0.5, where: 
+If $\textnormal{P}(y=1∣X) ≥ 0.5$,  the prediction is "Disease".
+If $\textnormal{P}(y=1∣X) < 0.5$, the prediction is "No Disease".
+
+The initial model, trained without hyperparameter tuning or cross-validation, achieved a precision of 0.86, accuracy of 0.89, recall of 0.86, specificity of 0.87, and an F1-Score of 0.86, indicating balanced performance for the task. After applying cross-validation and hyperparameter tuning, the updated model achieved improved metrics: precision of 0.89, accuracy of 0.83, recall of 0.86, specificity of 0.90, and an F1-Score of 0.88. (See Figures 4 and 5)
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Inital.png}}
+    \caption{Initial Confusion Matrix.}\label{agedist}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Tuned Model.png}}
+    \caption{Tuned Model Confusion Matrix.}\label{agedist}
+\end{figure}
+
+The Receiver Operating Characteristic (ROC) curve for the initial model had an AUC value of 0.92, reflecting strong discriminatory capability between classes, while the tuned model achieved a slightly lower AUC of 0.91
+By analyzing the confusion matrix and ROC curve, we concluded that the logistic regression model provides robust predictions for detecting heart disease while maintaining low false-positive and false-negative rates. (See Figures 6 and 7)
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Inital.png}}
+    \caption{Initial Receiver Operating Characteristic (ROC) Curve.}\label{agedist}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Tuned Model.png}}
+    \caption{Tuned Model Receiver Operating Characteristic (ROC) Curve.}\label{agedist}
+\end{figure}
 
 \subsection{Random Forest}
+We developed this model for the prediction of heart disease presence using a Random Forest Classifier. In this regard, we separated numerical and categorical features, imputing their missing values using mean for numerical, most frequent for categorical-followed by the application of standard scaling and one-hot encoding. Data preprocessed was passed to a pipeline that integrates the Random Forest Classifier.
+
+Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix.
 
 \subsection{Artificial Neural Network}
 
