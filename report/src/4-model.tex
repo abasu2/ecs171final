@@ -4,23 +4,25 @@
 \subsection{Logistic Regression}
 To develop the logistic regression model, we used the scikit-learn library in Python. The dataset was preprocessed by selecting 13 key features and converting the multi-class target variable $(1 - 4)$ into a binary target for heart disease classification. Missing values were handled using mean imputation, and we normalized the feature values using min-max scaling to ensure all features were on a similar scale.
 
-The Logistic Regression model inherently uses the sigmoid activation function to model the probability of the target class (disease or no disease). The sigmoid function transforms the linear combination of the input features, $z = w^{TX} + b$ (where W represents the weights and b the bias), into a probability value between 0 and 1. This transformation is defined as:
+The Logistic Regression model inherently uses the sigmoid activation function to model the probability of the target class (disease or no disease). The sigmoid function transforms the linear combination of the input features, $z = w^{T}X + b$ (where \(w\) represents the weights and \(b\) the bias), into a probability value between 0 and 1. This transformation is defined as:
 
-$P(y=1|X) = \frac{1}{1 + e^{-z}}$
+\[
+P(y=1 \mid X) = \frac{1}{1 + e^{-z}}
+\]
 
 The dataset was split into 75\% training and 25\% testing sets using the binary cross-entropy loss function which measures the difference between the predicted probabilities and the actual target labels. When making predictions, the model assigns the class label based on a threshold of 0.5, where: 
-If $\textnormal{P}(y=1∣X) ≥ 0.5$,  the prediction is "Disease".
-If $\textnormal{P}(y=1∣X) < 0.5$, the prediction is "No Disease".
+If $\textnormal{P}(y=1 \mid X) \geq 0.5$,  the prediction is "Disease".
+If $\textnormal{P}(y=1 \mid X) < 0.5$, the prediction is "No Disease".
 
 The initial model, trained without hyperparameter tuning or cross-validation, achieved a precision of 0.86, accuracy of 0.89, recall of 0.86, specificity of 0.87, and an F1-Score of 0.86, indicating balanced performance for the task. After applying cross-validation and hyperparameter tuning, the updated model achieved improved metrics: precision of 0.89, accuracy of 0.83, recall of 0.86, specificity of 0.90, and an F1-Score of 0.88. (Fig.~\ref{Initial Logistic Regression Confusion Matrix} \& Fig.~\ref{Tuned Logistic Regression Confusion Matrix})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Inital.png}}
+    \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_inital.png}}
     \caption{Initial Logistic Regression Confusion Matrix.}\label{Initial Logistic Regression Confusion Matrix}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Tuned Model.png}}
+    \centerline{\includegraphics[scale=0.2]{img/confusion_matrix_tuned_model.png}}
     \caption{Tuned Logistic Regression Confusion Matrix.}\label{Tuned Logistic Regression Confusion Matrix}
 \end{figure}
 
@@ -28,12 +30,12 @@ The Receiver Operating Characteristic (ROC) curve for the initial model had an A
 By analyzing the confusion matrix and ROC curve, we concluded that the logistic regression model provides robust predictions for detecting heart disease while maintaining low false-positive and false-negative rates. (Fig.~\ref{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve} \& Fig.~\ref{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Inital.png}}
+    \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_inital.png}}
     \caption{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve.}\label{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Tuned Model.png}}
+    \centerline{\includegraphics[scale=0.2]{img/receiver_operating_characteristic_curve_tuned_model.png}}
     \caption{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve.}\label{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
@@ -43,12 +45,12 @@ We developed this model for the prediction of heart disease presence using a Ran
 Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix. (Fig.~\ref{Tuned Random Forest Precision Recall Curve} \& Fig.~\ref{Tuned Random Forest Confusion Matrix})
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.2]{img/Random Forest Precision Recall Optimized.png}}
+    \centerline{\includegraphics[scale=0.2]{img/random_forest_precision_recall_optimized.png}}
     \caption{Tuned Random Forest Precision Recall Curve.}\label{Tuned Random Forest Precision Recall Curve}
 \end{figure}
 
 \begin{figure}[htbp]
-    \centerline{\includegraphics[scale=0.4]{img/Random Forest Confusion Matrix Optimized.png}}
+    \centerline{\includegraphics[scale=0.4]{img/random_forest_confusion_matrix_optimized.png}}
     \caption{Tuned Random Forest Confusion Matrix.}\label{Tuned Random Forest Confusion Matrix}
 \end{figure}
 
