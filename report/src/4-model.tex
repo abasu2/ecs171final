@@ -12,44 +12,44 @@ The dataset was split into 75\% training and 25\% testing sets using the binary 
 If $\textnormal{P}(y=1∣X) ≥ 0.5$,  the prediction is "Disease".
 If $\textnormal{P}(y=1∣X) < 0.5$, the prediction is "No Disease".
 
-The initial model, trained without hyperparameter tuning or cross-validation, achieved a precision of 0.86, accuracy of 0.89, recall of 0.86, specificity of 0.87, and an F1-Score of 0.86, indicating balanced performance for the task. After applying cross-validation and hyperparameter tuning, the updated model achieved improved metrics: precision of 0.89, accuracy of 0.83, recall of 0.86, specificity of 0.90, and an F1-Score of 0.88. (See Figures 4 and 5)
+The initial model, trained without hyperparameter tuning or cross-validation, achieved a precision of 0.86, accuracy of 0.89, recall of 0.86, specificity of 0.87, and an F1-Score of 0.86, indicating balanced performance for the task. After applying cross-validation and hyperparameter tuning, the updated model achieved improved metrics: precision of 0.89, accuracy of 0.83, recall of 0.86, specificity of 0.90, and an F1-Score of 0.88. (Fig.~\ref{Initial Logistic Regression Confusion Matrix} \& Fig.~\ref{Tuned Logistic Regression Confusion Matrix})
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Inital.png}}
-    \caption{Initial Confusion Matrix.}\label{agedist}
+    \caption{Initial Logistic Regression Confusion Matrix.}\label{Initial Logistic Regression Confusion Matrix}
 \end{figure}
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.2]{img/Confusion Matrix Tuned Model.png}}
-    \caption{Tuned Model Confusion Matrix.}\label{agedist}
+    \caption{Tuned Logistic Regression Confusion Matrix.}\label{Tuned Logistic Regression Confusion Matrix}
 \end{figure}
 
 The Receiver Operating Characteristic (ROC) curve for the initial model had an AUC value of 0.92, reflecting strong discriminatory capability between classes, while the tuned model achieved a slightly lower AUC of 0.91
-By analyzing the confusion matrix and ROC curve, we concluded that the logistic regression model provides robust predictions for detecting heart disease while maintaining low false-positive and false-negative rates. (See Figures 6 and 7)
+By analyzing the confusion matrix and ROC curve, we concluded that the logistic regression model provides robust predictions for detecting heart disease while maintaining low false-positive and false-negative rates. (Fig.~\ref{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve} \& Fig.~\ref{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve})
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Inital.png}}
-    \caption{Initial Receiver Operating Characteristic (ROC) Curve.}\label{agedist}
+    \caption{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve.}\label{Initial Logistic Regression Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.2]{img/Receiver Operating Characteristic Curve Tuned Model.png}}
-    \caption{Tuned Model Receiver Operating Characteristic (ROC) Curve.}\label{agedist}
+    \caption{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve.}\label{Tuned Logistic Regression Model Receiver Operating Characteristic (ROC) Curve}
 \end{figure}
 
 \subsection{Random Forest}
 We developed this model for the prediction of heart disease presence using a Random Forest Classifier. In this regard, we separated numerical and categorical features, imputing their missing values using mean for numerical, most frequent for categorical-followed by the application of standard scaling and one-hot encoding. Data preprocessed was passed to a pipeline that integrates the Random Forest Classifier.
 
-Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix. (See Figures 8 and 9)
+Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix. (Fig.~\ref{Tuned Random Forest Precision Recall Curve} \& Fig.~\ref{Tuned Random Forest Confusion Matrix})
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.2]{img/Random Forest Precision Recall Optimized.png}}
-    \caption{Tuned Random Forest Precision Recall Curve.}\label{agedist}
+    \caption{Tuned Random Forest Precision Recall Curve.}\label{Tuned Random Forest Precision Recall Curve}
 \end{figure}
 
 \begin{figure}[htbp]
     \centerline{\includegraphics[scale=0.4]{img/Random Forest Confusion Matrix Optimized.png}}
-    \caption{Tuned Random Forest Confusion Matrix.}\label{agedist}
+    \caption{Tuned Random Forest Confusion Matrix.}\label{Tuned Random Forest Confusion Matrix}
 \end{figure}
 
 \subsection{Artificial Neural Network}
@@ -64,7 +64,7 @@ We used mini-batch gradient descent as the optimization technique. We trained th
 \begin{figure}[htbp]
     % \centerline{\includegraphics[width=0.7\columnwidth]{img/annoverfitting.png}}
     \centerline{\includegraphics[scale=0.435]{img/annoverfitting.png}}
-    \caption{Training and testing loss of the simple ANN model.}\label{annoverfitting}
+    \caption{Initial ANN model Training and Testing Loss.}\label{annoverfitting}
 \end{figure}
 
 To address this issue, we added 5-fold cross-validation and hyperparameter tuning, with dropout and momentum added. We used the GridSearchCV function from the scikit-learn library to perform a grid search over different values for the number of hidden layers (1, 2, 3), the number of neurons in each hidden layer (32, 64, 128), the dropout rate (0.1, 0.3) and the momentum term (0.5, 0.9). To further prevent overfitting and to reduce computation time, we reduced the number of epochs the model was trained for from 100 to 50. We found that the best model had three hidden layers with 128 neurons each, with a dropout rate of 0.3 and momentum term of 0.5. The best model achieved an accuracy of 0.91 on the test set, which was a significant improvement over the simple model which had an accuracy of 0.85. The confusion matrix for the best model is shown in Fig.~\ref{annconfusion}.
@@ -72,7 +72,7 @@ To address this issue, we added 5-fold cross-validation and hyperparameter tunin
 \begin{figure}[htbp]
     % \centerline{\includegraphics[width=0.7\columnwidth]{img/annconfusion.png}}
     \centerline{\includegraphics[scale=.65]{img/annconfusion.png}}
-    \caption{Confusion matrix of the best ANN model.}\label{annconfusion}
+    \caption{Tuned ANN model Confusion matrix.}\label{annconfusion}
 \end{figure}
 
 \subsection{Model Comparison}
