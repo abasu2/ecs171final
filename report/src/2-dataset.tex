@@ -1,6 +1,8 @@
 % Dataset Description
 \section{Dataset}
-The Cleveland Heard Disease Dataset serves as our foundation for this study. It consists of 13 attributes and 303 samples. The target variable ($y$) indicates the presence or absence of heart disease, which provides a binary classification for our models. A list of the 13 attributes are:
+We used a subset of 13 features from the Cleveland Heart Disease dataset, although it contains 76 attributes, because these 13 are the most relevant and informative for heart disease. Feature selection is based on including age, cholesterol, chest pain type, and exercise-induced angina as the key clinical factors that show high correlation with heart diseases. We excluded features that were irrelevant for the study or domain-specific, like patient identifiers and dates of procedures. These do not add any value to the predictive accuracy of the model. Based on these 13 features, simplification of the dataset thereby helped in improving the model performance and made the predictions much easier to interpret. Moreover, tending to these standardized features allowed consistent benchmarking across studies and therefore made it easier to compare different machine learning algorithms while keeping the medically significant variables in focus.
+
+Our dataset consists of 13 attributes and 303 samples. The target variable ($y$) indicates the presence or absence of heart disease, which provides a binary classification for our models. A list of the 13 attributes are:
 \begin{itemize}
     \item Age: The patient’s age in years.
     \item Sex: A binary variable indicating gender (1 for male, 0 for female).
@@ -14,4 +16,7 @@ The Cleveland Heard Disease Dataset serves as our foundation for this study. It 
     \item Old Peak (ST depression): Numerical value indicating ST depression induced by exercise relative to rest.
     \item Slope of the Peak Exercise ST Segment: Categorical data indicating the slope of the ST segment during peak exercise.
     \item Number of Major Vessels (ca): Numeric variable representing major vessels colored by fluoroscopy.
-\end{itemize}
+\end{itemize}   
+
+The Cleveland Heart Disease Dataset provides a solid basis for developing prediction models due to its variety of variables and clinical significance. This study used a meticulously selected subset of features and implemented stringent pre-processing methods to create machine learning models that are both precise and coherent. This methodology guarantees that the results are both statistically valid and congruent with clinical expertise, making them appropriate for practical healthcare implementations.
+
