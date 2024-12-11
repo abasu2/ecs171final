@@ -40,7 +40,17 @@ By analyzing the confusion matrix and ROC curve, we concluded that the logistic 
 \subsection{Random Forest}
 We developed this model for the prediction of heart disease presence using a Random Forest Classifier. In this regard, we separated numerical and categorical features, imputing their missing values using mean for numerical, most frequent for categorical-followed by the application of standard scaling and one-hot encoding. Data preprocessed was passed to a pipeline that integrates the Random Forest Classifier.
 
-Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix.
+Then we did some hyperparameter tuning, however the results were a bit worse than using the default parameters and cross-validation. Therefore, for the evaluation, we used cross-validation. Metrics used to assess the effectiveness of this model include precision, recall, F1-score, specificity, and a confusion matrix. (See Figures 8 and 9)
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.2]{img/Random Forest Precision Recall Optimized.png}}
+    \caption{Tuned Random Forest Precision Recall Curve.}\label{agedist}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics[scale=0.4]{img/Random Forest Confusion Matrix Optimized.png}}
+    \caption{Tuned Random Forest Confusion Matrix.}\label{agedist}
+\end{figure}
 
 \subsection{Artificial Neural Network}
 
